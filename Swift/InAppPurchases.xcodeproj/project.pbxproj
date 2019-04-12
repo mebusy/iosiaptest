@@ -59,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EAFE4280EAFE424000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		EB1A216820DAE91600E70EE7 /* InAppPurchases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InAppPurchases.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1A216B20DAE91600E70EE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB1A217020DAE91600E70EE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,8 +104,7 @@
 		EBB16C3D20DB35BE00659D71 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		EBB16C3F20DB36F700659D71 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		EBD359B4225C184800810A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		F37B62A0F5E0F7A000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
-		F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		ED3F82B0ED3BC16000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +132,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EAFDF0F0EAFE345000000001 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				EAFE4280EAFE424000000001 /* SampleCode.xcconfig */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		EB1A215D20DAE88100E70EE7 = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +149,8 @@
 				EBB16C2320DB31D500659D71 /* tvOS */,
 				EB1A217C20DAEC2E00E70EE7 /* Common */,
 				EB1A216920DAE91600E70EE7 /* Products */,
-				F5A65000F5A64FC000000001 /* Configuration */,
-				F5E0F8F0F5E367D000000001 /* LICENSE */,
+				EAFDF0F0EAFE345000000001 /* Configuration */,
+				ED3F81E0ED3F7DC000000001 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,18 +253,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F5A65000F5A64FC000000001 /* Configuration */ = {
+		ED3F81E0ED3F7DC000000001 /* LICENSE */ = {
 			isa = PBXGroup;
 			children = (
-				F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */,
-			);
-			name = Configuration;
-			sourceTree = "<group>";
-		};
-		F5E0F8F0F5E367D000000001 /* LICENSE */ = {
-			isa = PBXGroup;
-			children = (
-				F37B62A0F5E0F7A000000001 /* LICENSE.txt */,
+				ED3F82B0ED3BC16000000001 /* LICENSE.txt */,
 			);
 			name = LICENSE;
 			path = ../LICENSE;
@@ -506,7 +506,7 @@
 /* Begin XCBuildConfiguration section */
 		EB1A216220DAE88100E70EE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -542,7 +542,7 @@
 		};
 		EB1A216320DAE88100E70EE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -576,7 +576,7 @@
 		};
 		EB1A217920DAE91D00E70EE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -650,7 +650,7 @@
 		};
 		EB1A217A20DAE91D00E70EE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -718,7 +718,7 @@
 		};
 		EBB16BDE20DAFEB000659D71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -793,7 +793,7 @@
 		};
 		EBB16BDF20DAFEB000659D71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -861,7 +861,7 @@
 		};
 		EBB16C3120DB31D800659D71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -935,7 +935,7 @@
 		};
 		EBB16C3220DB31D800659D71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5A61600F5A5AF3000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
