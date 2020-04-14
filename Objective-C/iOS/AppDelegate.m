@@ -10,7 +10,7 @@ The application delegate class. Registers and removes an observer from the payme
 #import "StoreObserver.h"
 
 @implementation AppDelegate
-    
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Attach an observer to the payment queue.
     [[SKPaymentQueue defaultQueue] addTransactionObserver:[StoreObserver sharedInstance]];

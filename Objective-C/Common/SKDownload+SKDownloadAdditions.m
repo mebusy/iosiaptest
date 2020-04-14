@@ -10,11 +10,7 @@ Creates a category for the SKDownload class.
 @implementation SKDownload (SKDownloadAdditions)
 /// - returns: A string representation of the downloadable content length.
 -(NSString *)downloadContentSize {
-#if TARGET_OS_OSX
-	return [NSByteCountFormatter stringFromByteCount:(self.contentLength).longLongValue countStyle:NSByteCountFormatterCountStyleFile];
-#else
-	return [NSByteCountFormatter stringFromByteCount:self.contentLength countStyle:NSByteCountFormatterCountStyleFile];
-#endif
+    return [NSByteCountFormatter stringFromByteCount:self.expectedContentLength countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 @end

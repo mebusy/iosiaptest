@@ -12,9 +12,9 @@ Implements the SKPaymentTransactionObserver protocol. Handles purchasing and res
 + (StoreObserver *)sharedInstance;
 
 /**
- 	Indicates whether the user is allowed to make payments.
- 	- returns: true if the user is allowed to make payments and false, otherwise. Tell StoreManager to query the App Store when the user is allowed to
-			   make payments and there are product identifiers to be queried.
+    Indicates whether the user is allowed to make payments.
+    - returns: true if the user is allowed to make payments and false, otherwise. Tell StoreManager to query the App Store when the user is allowed to make payments and there are product identifiers to be
+     queried.
  */
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL isAuthorizedForPayments;
 
@@ -36,4 +36,3 @@ Implements the SKPaymentTransactionObserver protocol. Handles purchasing and res
 /// Implements the restoration of previously completed purchases.
 -(void)restore;
 @end
-

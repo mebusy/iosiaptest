@@ -41,20 +41,20 @@ extern NSString *const PCSPurchaseNotification;
 extern NSString *const PCSRestoredWasCalledNotification;
 
 typedef NS_ENUM(NSInteger, PCSProductRequestStatus) {
-	PCSIdentifiersNotFound, // indicates that there are some invalid product identifiers.
-	PCSProductsFound,// Indicates that there are some valid products.
-	PCSRequestFailed, // Indicates that the product request has failed.
-	PCSStoreResponse, // Indicates that there are some valid products, invalid product identifiers, or both available.
-	PCSProductRequestStatusNone // The PCSProductRequest notification has not occured yet. This is the default value.
+    PCSIdentifiersNotFound, // indicates that there are some invalid product identifiers.
+    PCSProductsFound,// Indicates that there are some valid products.
+    PCSRequestFailed, // Indicates that the product request has failed.
+    PCSStoreResponse, // Indicates that there are some valid products, invalid product identifiers, or both available.
+    PCSProductRequestStatusNone // The PCSProductRequest notification has not occured yet. This is the default value.
 };
 
 typedef NS_ENUM(NSInteger, PCSPurchaseStatus) {
-	PCSPurchaseFailed, // Indicates that the purchase was unsuccessful.
-	PCSPPurchaseSucceeded, // Indicates that the purchase was successful.
-	PCSRestoreFailed, // Indicates that restoring purchases was unsuccessful.
-	PCSRestoreSucceeded, // Indicates that restoring purchases was successful.
-	PCSNoRestorablePurchases, // Indicates that there are no restorable purchases.
-	PCSPurchaseStatusNone // The PCSPurchase notification has not occured yet. This is the default value.
+    PCSPurchaseFailed, // Indicates that the purchase was unsuccessful.
+    PCSPPurchaseSucceeded, // Indicates that the purchase was successful.
+    PCSRestoreFailed, // Indicates that restoring purchases was unsuccessful.
+    PCSRestoreSucceeded, // Indicates that restoring purchases was successful.
+    PCSNoRestorablePurchases, // Indicates that there are no restorable purchases.
+    PCSPurchaseStatusNone // The PCSPurchase notification has not occured yet. This is the default value.
 };
 
 #pragma mark - Payment Transaction Details Labels

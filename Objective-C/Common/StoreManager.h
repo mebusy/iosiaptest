@@ -2,9 +2,9 @@
 See LICENSE folder for this sample’s licensing information.
 
 Abstract:
-Retrieves product information from the App Store using SKRequestDelegate, SKProductsRequestDelegate, SKProductsResponse, and SKProductsRequest.
- Notifies its observer with a list of products available for sale along with a list of invalid product identifiers. Logs an error message if the
- product request failed.
+Retrieves product information from the App Store using SKRequestDelegate, SKProductsRequestDelegate, SKProductsResponse, and
+ SKProductsRequest. Notifies its observer with a list of products available for sale along with a list of invalid product identifiers. Logs an error
+ message if the product request failed.
 */
 
 @import StoreKit;

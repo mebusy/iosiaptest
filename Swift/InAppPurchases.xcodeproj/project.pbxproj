@@ -23,6 +23,7 @@
 		EB1A219020DAF1D100E70EE7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A218F20DAF1D100E70EE7 /* Utilities.swift */; };
 		EB1A219220DAF2B400E70EE7 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A219120DAF2B400E70EE7 /* ParentViewController.swift */; };
 		EB70E59621559935007E3C63 /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBB16BC920DAF92800659D71 /* ProductIds.plist */; };
+		EBA926E223FB50990001587F /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBB16BF620DB22E000659D71 /* ProductIds.plist */; };
 		EBB16BD320DAFEAE00659D71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB16BD220DAFEAE00659D71 /* AppDelegate.swift */; };
 		EBB16BD720DAFEAF00659D71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB16BD620DAFEAF00659D71 /* Assets.xcassets */; };
 		EBB16BDA20DAFEB000659D71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB16BD820DAFEB000659D71 /* Main.storyboard */; };
@@ -55,11 +56,11 @@
 		EBB16C3E20DB35BE00659D71 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB16C3D20DB35BE00659D71 /* Settings.swift */; };
 		EBB16C4020DB36F700659D71 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB16C3F20DB36F700659D71 /* TabBarViewController.swift */; };
 		EBD2E95E20E300AE0023512D /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5E7A8C20E175AD005FE1AC /* ProductIds.plist */; };
-		EBD359B2225C177100810A5E /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBB16BF620DB22E000659D71 /* ProductIds.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EAFE4280EAFE424000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		7991198017CF44272489E13A /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 		EB1A216820DAE91600E70EE7 /* InAppPurchases.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InAppPurchases.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1A216B20DAE91600E70EE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB1A217020DAE91600E70EE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		EBB16C3D20DB35BE00659D71 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		EBB16C3F20DB36F700659D71 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		EBD359B4225C184800810A5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		ED3F82B0ED3BC16000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,12 +132,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EAFDF0F0EAFE345000000001 /* Configuration */ = {
+		3258DD53E5FB985A18A23F40 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				EAFE4280EAFE424000000001 /* SampleCode.xcconfig */,
+				4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */,
 			);
 			name = Configuration;
+			sourceTree = "<group>";
+		};
+		DB08075F57D2F1267061F355 /* LICENSE */ = {
+			isa = PBXGroup;
+			children = (
+				7991198017CF44272489E13A /* LICENSE.txt */,
+			);
+			name = LICENSE;
+			path = ../LICENSE;
 			sourceTree = "<group>";
 		};
 		EB1A215D20DAE88100E70EE7 = {
@@ -149,8 +158,8 @@
 				EBB16C2320DB31D500659D71 /* tvOS */,
 				EB1A217C20DAEC2E00E70EE7 /* Common */,
 				EB1A216920DAE91600E70EE7 /* Products */,
-				EAFDF0F0EAFE345000000001 /* Configuration */,
-				ED3F81E0ED3F7DC000000001 /* LICENSE */,
+				3258DD53E5FB985A18A23F40 /* Configuration */,
+				DB08075F57D2F1267061F355 /* LICENSE */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,15 +262,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ED3F81E0ED3F7DC000000001 /* LICENSE */ = {
-			isa = PBXGroup;
-			children = (
-				ED3F82B0ED3BC16000000001 /* LICENSE.txt */,
-			);
-			name = LICENSE;
-			path = ../LICENSE;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,7 +272,6 @@
 				EB1A216420DAE91600E70EE7 /* Sources */,
 				EB1A216520DAE91600E70EE7 /* Frameworks */,
 				EB1A216620DAE91600E70EE7 /* Resources */,
-				09E1561009E1CBC000000001,
 			);
 			buildRules = (
 			);
@@ -290,7 +289,6 @@
 				EBB16BCC20DAFEAE00659D71 /* Sources */,
 				EBB16BCD20DAFEAE00659D71 /* Frameworks */,
 				EBB16BCE20DAFEAE00659D71 /* Resources */,
-				09E1D2A009E1E57000000001,
 			);
 			buildRules = (
 			);
@@ -308,7 +306,6 @@
 				EBB16C1E20DB31D500659D71 /* Sources */,
 				EBB16C1F20DB31D500659D71 /* Frameworks */,
 				EBB16C2020DB31D500659D71 /* Resources */,
-				09E1CB0009E1E5B000000001,
 			);
 			buildRules = (
 			);
@@ -326,7 +323,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					EB1A216720DAE91600E70EE7 = {
@@ -344,7 +341,7 @@
 					};
 					EBB16C2120DB31D500659D71 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -386,7 +383,7 @@
 			files = (
 				EBB16BD720DAFEAF00659D71 /* Assets.xcassets in Resources */,
 				EBB16BDA20DAFEB000659D71 /* Main.storyboard in Resources */,
-				EBD359B2225C177100810A5E /* ProductIds.plist in Resources */,
+				EBA926E223FB50990001587F /* ProductIds.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +503,7 @@
 /* Begin XCBuildConfiguration section */
 		EB1A216220DAE88100E70EE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -534,15 +531,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		EB1A216320DAE88100E70EE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -569,14 +566,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 			};
 			name = Release;
 		};
 		EB1A217920DAE91D00E70EE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -630,7 +627,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,7 +647,7 @@
 		};
 		EB1A217A20DAE91D00E70EE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -698,7 +695,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -718,7 +715,7 @@
 		};
 		EBB16BDE20DAFEB000659D71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -757,6 +754,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -778,7 +776,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InAppPurchases${SAMPLE_CODE_DISAMBIGUATOR}.macOS";
@@ -793,7 +791,7 @@
 		};
 		EBB16BDF20DAFEB000659D71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -832,6 +830,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -847,7 +846,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.InAppPurchases${SAMPLE_CODE_DISAMBIGUATOR}.macOS";
 				PRODUCT_NAME = InAppPurchases;
@@ -861,7 +860,7 @@
 		};
 		EBB16C3120DB31D800659D71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -927,15 +926,15 @@
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
 		EBB16C3220DB31D800659D71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EAFE4280EAFE424000000001 /* SampleCode.xcconfig */;
+			baseConfigurationReference = 4D8EBA9953117A31F399D715 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -994,9 +993,9 @@
 				SDKROOT = appletvos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

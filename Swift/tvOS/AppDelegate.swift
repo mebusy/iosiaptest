@@ -10,16 +10,16 @@ import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-	var window: UIWindow?
-
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Attach an observer to the payment queue.
-		SKPaymentQueue.default().add(StoreObserver.shared)
-		return true
-	}
-
-	func applicationWillTerminate(_ application: UIApplication) {
-		// Remove the observer.
-		SKPaymentQueue.default().remove(StoreObserver.shared)
-	}
+    var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Attach an observer to the payment queue.
+        SKPaymentQueue.default().add(StoreObserver.shared)
+        return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Remove the observer.
+        SKPaymentQueue.default().remove(StoreObserver.shared)
+    }
 }
