@@ -3,7 +3,7 @@ Fetch, complete, and restore transactions in your app.
 
 ## Overview
 In-App Purchase allows users to purchase virtual goods within your app or directly from the App Store using the StoreKit framework.
-This sample code demonstrates how to retrieve, display, and restore in-app purchases. First, you set up your app to register and use a single-transaction queue observer at launch. The transaction queue observer manages all payment transactions and handles all transactions states. Confirm that it’s a shared instance of a custom class that conforms to the [`SKPaymentTransactionObserver`][sect1_link1] protocol. Then, remove the transaction observer when the system is about to terminate the app. See [`Setting Up the Transaction Observer and Payment Queue`][sect1_link2] for more information.
+This sample code demonstrates how to retrieve, display, and restore in-app purchases. First, you set up your app to register and use a single-transaction queue observer at launch. The transaction queue observer manages all payment transactions and handles all transactions states. Confirm that it’s a shared instance of a custom class that conforms to the [`SKPaymentTransactionObserver`][sect1_link1] protocol. Then, remove the transaction observer when the system is about to terminate the app. See [Setting Up the Transaction Observer and Payment Queue][sect1_link2] for more information.
 
 This sample, which builds the `InAppPurchases` app, supports the iOS, macOS, and tvOS platforms. 
 After launching, `InAppPurchases` queries the App Store about product identifiers saved in the `Products.plist` file. `InAppPurchases` updates its UI with the App Store's response, which may include available products for sale, unrecognized product identifiers, or both. The app also displays all available purchased and restored payment transactions in its UI.
@@ -14,23 +14,23 @@ After launching, `InAppPurchases` queries the App Store about product identifier
 ## Configure the Sample Code Project
 Before you can run and test this sample, you need to:
 1. Start with a completed app that supports in-app purchases and has some in-app purchases configured in App Store Connect. See 
-steps 1 and 2 of [`Workflow for configuring in-app purchases`](https://help.apple.com/app-store-connect/#/devb57be10e7) for more information.
+steps 1 and 2 of [Workflow for configuring in-app purchases](https://help.apple.com/app-store-connect/#/devb57be10e7) for more information.
 
-2. Create a sandbox test user account in the App Store Connect. See [`Create a sandbox tester account`](https://help.apple.com/app-store-connect/#/dev8b997bee1) for details.
+2. Create a sandbox test user account in the App Store Connect. See [Create a sandbox tester account](https://help.apple.com/app-store-connect/#/dev8b997bee1) for details.
 
 3. Open this sample in Xcode, select the target that you wish to build, then change its _bundle ID_ to one that supports in-app purchase. Next, select
-the right team to let Xcode automatically manage your provisioning profile. See [`Assign a project to a team`](https://help.apple.com/xcode/mac/current/#/dev23aab79b4) for details.
+the right team to let Xcode automatically manage your provisioning profile. See [Assign a project to a team](https://help.apple.com/xcode/mac/current/#/dev23aab79b4) for details.
 
 4. Open the _ProductIds.plist_ file in the sample and update its content with your existing in-app purchases’ product IDs.
 
-5. For iOS and tvOS devices, build and run the `InAppPurchases` and `InAppPurchasestvOS` targets, respectively, which the sample uses to build `InAppPurchases`. Read [`If a code signing error occurs`](https://help.apple.com/xcode/mac/current/#/dev01865b392) if you're running into any code-signing issues.
+5. For iOS and tvOS devices, build and run the InAppPurchases and `InAppPurchasestvOS` targets, respectively, which the sample uses to build `InAppPurchases`. Read [If a code signing error occurs](https://help.apple.com/xcode/mac/current/#/dev01865b392) if you're running into any code-signing issues.
 
-6. For macOS, before building the `InAppPurchasesmacOS` target, sign out of the Mac App Store. Build the target, then launch the resulting app from the Finder the first time to obtain a receipt. See [`Testing In-App Purchase Transactions > Sign In to the App Store with Your Test Account`][sect2_link6] for details. 
+6. For macOS, before building the `InAppPurchasesmacOS` target, sign out of the Mac App Store. Build the target, then launch the resulting app from the Finder the first time to obtain a receipt. See [`Testing In-App Purchase Transactions > Sign In to the App Store with Your Test Account`][sect2_link6] for details.
 
 7. The `InAppPurchases` app queries the App Store about the product identifiers contained in _ProductIds.plist_ upon launching. When successful, it displays a list of products available for sale in the App Store. Tap any product in that list to purchase it. When prompted to authenticate the purchase, use your test user account created in step 2. When the product requests fails, see [invalidProductIdentifiers][sect2_link5]' discussion for various reasons why the App Store may return invalid product identifiers.
 
 [sect2_link5]:https://developer.apple.com/documentation/storekit/skproductsresponse/1505985-invalidproductidentifiers
-[sect2_link6]:https://developer.apple.com/documentation/storekit/in-app_purchase/testing_in-app_purchase_transactions
+[sect2_link6]:https://developer.apple.com/documentation/storekit/in-app_purchase/testing_at_all_stages_of_development_with_xcode_and_sandbox
 
 
 ## Display Available Products for Sale with Localized Pricing
@@ -41,7 +41,7 @@ var isAuthorizedForPayments: Bool {
 }
 ```
 
-Once the app confirms authorization, it sends a products request to the App Store to fetch localized product information from the App Store. Querying the App Store ensures that the app only presents users with products available for purchase. The app initializes the products request with a list of product identifiers associated with products that it wishes to sell in its UI. See [`Product ID`](https://help.apple.com/app-store-connect/#/dev84b80958f) for more information. Be sure to keep a strong reference to the products request object; the system may release it before the request completes.
+Once the app confirms authorization, it sends a products request to the App Store to fetch localized product information from the App Store. Querying the App Store ensures that the app only presents users with products available for purchase. The app initializes the products request with a list of product identifiers associated with products that it wishes to sell in its UI. See [Product ID](https://help.apple.com/app-store-connect/#/dev84b80958f) for more information. Be sure to keep a strong reference to the products request object; the system may release it before the request completes.
 ``` swift
 fileprivate func fetchProducts(matchingIdentifiers identifiers: [String]) {
     // Create a set for the product identifiers.
