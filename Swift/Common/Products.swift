@@ -14,8 +14,8 @@ class Products: BaseViewController {
     // MARK: - Types
     
     fileprivate struct CellIdentifiers {
-        static let availableProduct = "available"
-        static let invalidIdentifier = "invalid"
+        static let _strAvailableProduct = "available"
+        static let _strInvalidIdentifier = "invalid"
     }
     
     // MARK: - UITable​View​Data​Source
@@ -24,9 +24,9 @@ class Products: BaseViewController {
         let section = data[indexPath.section]
         
         if section.type == .availableProducts {
-            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.availableProduct, for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers._strAvailableProduct, for: indexPath)
         } else {
-            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.invalidIdentifier, for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers._strInvalidIdentifier, for: indexPath)
         }
     }
     

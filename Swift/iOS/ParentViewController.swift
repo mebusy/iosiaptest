@@ -96,24 +96,17 @@ class ParentViewController: UIViewController {
         if StoreObserver.shared.isAuthorizedForPayments {
             restoreButton.enable()
             
-            let resourceFile = ProductIdentifiers()
-            guard let identifiers = resourceFile.identifiers else {
-                // Warn the user that the resource file could not be found.
-                alert(with: Messages.status, message: resourceFile.wasNotFound)
-                return
-            }
+            // hard code IPA identifiers
+            let identifiers = ["com.temporary.renew" , "not_exist_iap_id" , "com.temporary.c" , "com.temporary.nc"]
             
-            if !identifiers.isEmpty {
-                switchToViewController(segment: .products)
-                // Refresh the UI with identifiers to be queried.
-                products.reload(with: [Section(type: .invalidProductIdentifiers, elements: identifiers)])
-                
-                // Fetch product information.
-                StoreManager.shared.startProductRequest(with: identifiers)
-            } else {
-                // Warn the user that the resource file does not contain anything.
-                alert(with: Messages.status, message: resourceFile.isEmpty)
-            }
+                    // UI switch
+                    switchToViewController(segment: .products)
+                    // Refresh the UI with identifiers to be queried.
+                    products.reload(with: [Section(type: .invalidProductIdentifiers, elements: identifiers)])
+            
+            // Fetch product information.
+            StoreManager.shared.startProductRequest(with: identifiers)
+
         } else {
             // Warn the user that they are not allowed to make purchases.
             alert(with: Messages.status, message: Messages.cannotMakePayments)
@@ -185,6 +178,11 @@ extension ParentViewController: StoreManagerDelegate {
 /// Extends ParentViewController to conform to StoreObserverDelegate.
 extension ParentViewController: StoreObserverDelegate {
     func storeObserverDidReceiveMessage(_ message: String) {
+        // when
+        //   error in purchase,
+        //   error in restore,
+        //   all restorable transactions have been processed
+        // we have filtered the user-cancel-payment message
         alert(with: Messages.purchaseStatus, message: message)
     }
     

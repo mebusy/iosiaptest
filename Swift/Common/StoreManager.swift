@@ -5,6 +5,14 @@ Abstract:
 Retrieves product information from the App Store using SKRequestDelegate, SKProductsRequestDelegate, SKProductsResponse, and
  SKProductsRequest. Notifies its observer with a list of products available for sale along with a list of invalid product identifiers. Logs an error
  message if the product request failed.
+ 
+How to use:
+1. Fetch product information. (in ParentViewController.swift)
+ if StoreObserver.shared.isAuthorizedForPayments {
+    StoreManager.shared.startProductRequest(with: identifiers)
+ }
+ 
+ SKProductsResponse via SKProductsRequestDelegate
 */
 
 import StoreKit
@@ -27,7 +35,7 @@ class StoreManager: NSObject {
     fileprivate var productRequest: SKProductsRequest!
     
     /// Keeps track of all valid products (these products are available for sale in the App Store) and of all invalid product identifiers.
-    fileprivate var storeResponse = [Section]()
+    fileprivate var storeProducts = [Section]()
     
     weak var delegate: StoreManagerDelegate?
     
@@ -86,13 +94,21 @@ extension StoreManager: SKProductsRequestDelegate {
     /// Used to get the App Store's response to your request and notify your observer.
     /// - Tag: ProductRequest
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        if !storeResponse.isEmpty {
-            storeResponse.removeAll()
+        if !storeProducts.isEmpty {
+            storeProducts.removeAll()
         }
         
         // products contains products whose identifiers have been recognized by the App Store. As such, they can be purchased.
         if !response.products.isEmpty {
             availableProducts = response.products
+            for product in availableProducts {
+                print("valid product fetched: \(product.productIdentifier)")
+                if #available(iOS 14.0, *) {
+                    print("\t familyShareable: \(product.isFamilyShareable)")
+                }
+                print("\t price: \(product.price) \(product.priceLocale)")
+                print("\t downloadable: \(product.isDownloadable)")
+            }
         }
         
         // invalidProductIdentifiers contains all product identifiers not recognized by the App Store.
@@ -101,16 +117,17 @@ extension StoreManager: SKProductsRequestDelegate {
         }
         
         if !availableProducts.isEmpty {
-            storeResponse.append(Section(type: .availableProducts, elements: availableProducts))
+            storeProducts.append(Section(type: .availableProducts, elements: availableProducts))
         }
         
         if !invalidProductIdentifiers.isEmpty {
-            storeResponse.append(Section(type: .invalidProductIdentifiers, elements: invalidProductIdentifiers))
+            storeProducts.append(Section(type: .invalidProductIdentifiers, elements: invalidProductIdentifiers))
         }
         
-        if !storeResponse.isEmpty {
+        if !storeProducts.isEmpty {
             DispatchQueue.main.async {
-                self.delegate?.storeManagerDidReceiveResponse(self.storeResponse)
+                // call delegate function
+                self.delegate?.storeManagerDidReceiveResponse(self.storeProducts)
             }
         }
     }

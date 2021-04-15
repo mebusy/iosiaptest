@@ -14,8 +14,8 @@ class PaymentTransactionDetails: BaseViewController {
     // MARK: - Types
     
     fileprivate struct CellIdentifiers {
-        static let basic = "basic"
-        static let custom = "custom"
+        static let _strBasic = "basic"
+        static let _strCustom = "custom"
     }
     
     // MARK: - Properties
@@ -33,9 +33,9 @@ class PaymentTransactionDetails: BaseViewController {
         let section = data[indexPath.section]
         
         if section.type == .download || section.type == .originalTransaction {
-            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.custom, for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers._strCustom, for: indexPath)
         } else {
-            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.basic, for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: CellIdentifiers._strBasic, for: indexPath)
         }
     }
     

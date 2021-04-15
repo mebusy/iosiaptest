@@ -2,7 +2,21 @@
 See LICENSE folder for this sample’s licensing information.
 
 Abstract:
+A custom observer class to handle changes to the payment queue:
 Implements the SKPaymentTransactionObserver protocol. Handles purchasing and restoring products using paymentQueue:updatedTransactions:.
+ 
+How to use:
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+     // Attach an observer to the payment queue.
+     SKPaymentQueue.default().add(StoreObserver.shared)
+     return true
+ }
+ 
+ func applicationWillTerminate(_ application: UIApplication) {
+     // Remove the observer.
+     SKPaymentQueue.default().remove(StoreObserver.shared)
+ }
 */
 
 import StoreKit
@@ -23,6 +37,13 @@ class StoreObserver: NSObject {
     var isAuthorizedForPayments: Bool {
         return SKPaymentQueue.canMakePayments()
     }
+ 
+    // MARK: - Initializer
+    
+    private override init() {}
+    
+    
+    // MARK: - Bookmark
     
     /// Keeps track of all purchases.
     var purchased = [SKPaymentTransaction]()
@@ -35,9 +56,7 @@ class StoreObserver: NSObject {
     
     weak var delegate: StoreObserverDelegate?
     
-    // MARK: - Initializer
-    
-    private override init() {}
+
     
     // MARK: - Submit Payment Request
     
@@ -62,9 +81,20 @@ class StoreObserver: NSObject {
     /// Handles successful purchase transactions.
     fileprivate func handlePurchased(_ transaction: SKPaymentTransaction) {
         purchased.append(transaction)
-        print("\(Messages.deliverContent) \(transaction.payment.productIdentifier).")
+        
+        // case purchased = 1
+        print( "Transaction: pid:\(transaction.payment.productIdentifier) status:\(transaction.transactionState.rawValue)" )
+        if transaction.transactionState.rawValue == 1 {
+            print("\t to deliver content...")
+        }
+        
+        
         
         // Finish the successful transaction.
+        // if finishTransaction() failed to invoke.
+        //    this transaction will keep in queue
+        //    StoreKit will try re-trigger and continue this transiaction every time
+        //    upon launching or purchasing same product until the app finishes these transactions.
         SKPaymentQueue.default().finishTransaction(transaction)
     }
     
@@ -109,15 +139,21 @@ extension StoreObserver: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
-            case .purchasing: break
+            case .purchasing:
+                print( "purchasing, to prompt UI" )
+                break
             // Do not block the UI. Allow the user to continue using the app.
-            case .deferred: print(Messages.deferred)
+            case .deferred:
+                print( "deferred: Allow the user to continue using your app." )
             // The purchase was successful.
-            case .purchased: handlePurchased(transaction)
+            case .purchased:
+                handlePurchased(transaction)
             // The transaction failed.
-            case .failed: handleFailed(transaction)
+            case .failed:
+                handleFailed(transaction)
             // There're restored products.
-            case .restored: handleRestored(transaction)
+            case .restored:
+                handleRestored(transaction)
             @unknown default: fatalError(Messages.unknownPaymentTransaction)
             }
         }
@@ -126,7 +162,7 @@ extension StoreObserver: SKPaymentTransactionObserver {
     /// Logs all transactions that have been removed from the payment queue.
     func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
-            print("\(transaction.payment.productIdentifier) \(Messages.removed)")
+            print("[queue] \(transaction.payment.productIdentifier) was removed from the payment queue.")
         }
     }
     
@@ -145,7 +181,8 @@ extension StoreObserver: SKPaymentTransactionObserver {
         
         if !hasRestorablePurchases {
             DispatchQueue.main.async {
-                self.delegate?.storeObserverDidReceiveMessage(Messages.noRestorablePurchases)
+                // mainly for dev debug purpose
+                self.delegate?.storeObserverDidReceiveMessage( "There are no restorable purchases." )
             }
         }
     }

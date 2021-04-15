@@ -38,22 +38,21 @@ struct Messages {
     static let cannotMakePayments = "In-App Purchases are not allowed."
     #endif
     static let couldNotFind = "Could not find resource file:"
-    static let deferred = "Allow the user to continue using your app."
-    static let deliverContent = "Deliver content for"
+
+
     static let emptyString = ""
     static let error = "Error: "
     static let failed = "failed."
     static let installing = "In-App Purchases may be restricted on your device."
     static let invalidIndexPath = "Invalid selected index path"
-    static let noRestorablePurchases = "There are no restorable purchases.\n\(previouslyBought)"
+    // static let noRestorablePurchases = "There are no restorable purchases.\n\(previouslyBought)"
     static let noPurchasesAvailable = "No purchases available."
     static let notAuthorized = "You are not authorized to make payments."
     static let okButton = "OK"
     static let previouslyBought = "Only previously bought non-consumable products and auto-renewable subscriptions can be restored."
-    static let productRequestStatus = "Product Request Status"
+    
     static let purchaseOf = "Purchase of"
-    static let purchaseStatus = "Purchase Status"
-    static let removed = "was removed from the payment queue."
+
     static let restorable = "All restorable transactions have been processed by the payment queue."
     static let restoreContent = "Restore content for"
     static let status = "Status"
@@ -76,17 +75,14 @@ struct Messages {
     static let useStoreRestore = "Use Store > Restore to restore your previously bought non-consumable products and auto-renewable subscriptions."
     static let viewControllerDoesNotExist = "The main content view controller does not exist."
     static let windowDoesNotExist = "The window does not exist."
+    
+    
+    // alert title when product request got some error
+    static let productRequestStatus = "Product Request Status"
+    // alert title when pay/restore got some mesage
+    static let purchaseStatus = "Purchase Status"
 }
 
-// MARK: - Resource File
-
-/// A structure that specifies the name and file extension of a resource file, which contains the product identifiers to be queried.
-struct ProductIdentifiers {
-    /// Name of the resource file containing the product identifiers.
-    let name = "ProductIds"
-    /// Filename extension of the resource file containing the product identifiers.
-    let fileExtension = "plist"
-}
 
 // MARK: - Data Management
 

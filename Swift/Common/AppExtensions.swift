@@ -105,21 +105,3 @@ extension UIBarItem: EnableItem {
     }
 }
 #endif
-
-// MARK: - ProductIdentifiers
-
-extension ProductIdentifiers {
-    var isEmpty: String {
-        return "\(name).\(fileExtension) is empty. \(Messages.updateResource)"
-    }
-    
-    var wasNotFound: String {
-        return "\(Messages.couldNotFind) \(name).\(fileExtension)."
-    }
-    
-    /// - returns: An array with the product identifiers to be queried.
-    var identifiers: [String]? {
-        guard let path = Bundle.main.path(forResource: self.name, ofType: self.fileExtension) else { return nil }
-        return NSArray(contentsOfFile: path) as? [String]
-    }
-}
