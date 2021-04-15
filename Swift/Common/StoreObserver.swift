@@ -22,7 +22,7 @@ How to use:
 import StoreKit
 import Foundation
 
-class StoreObserver: NSObject {
+class StoreObserver: NSObject, SKRequestDelegate {
     // MARK: - Types
     
     static let shared = StoreObserver()
@@ -237,5 +237,16 @@ extension StoreObserver: SKPaymentTransactionObserver {
         } else {
             print("[queue] all restorable transactions have been processed by the payment queue.")
         }
+    }
+    
+    // MARK: - SKReceiptRefreshRequest
+    func requestDidFinish(_ request: SKRequest) {
+        print("requestDidFinish")
+    }
+
+    @available(iOS 3.0, *)
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        print("requst(_:didFailWithError:)")
+        print( error )
     }
 }
