@@ -95,11 +95,12 @@ class StoreObserver: NSObject {
                 self.delegate?.storeObserverPurchaseSucceed( transaction.payment.productIdentifier )
             } else {
                 self.delegate?.storeObserverDidReceiveMessage( Messages.verifyFailed )
+                return // prevent from invoking finish Transaction
             }
         }
         
         // Finish the successful transaction.
-        // if finishTransaction() failed to invoke.
+        // if finish Transaction() failed to invoke.
         //    this transaction will keep in queue
         //    StoreKit will try re-trigger and continue this transiaction every time
         //    upon launching or purchasing same product until the app finishes these transactions.
@@ -129,6 +130,9 @@ class StoreObserver: NSObject {
     fileprivate func handleRestored(_ transaction: SKPaymentTransaction) {
         hasRestorablePurchases = true
         restored.append(transaction)
+                
+        // Finishes the restored transaction, for restore, finish it at once
+        SKPaymentQueue.default().finishTransaction(transaction)
         
         // state: ase purchased = 1, restored = 3
         print( "Transaction: pid:\(transaction.payment.productIdentifier) status:\(transaction.transactionState.rawValue)" )
@@ -144,13 +148,38 @@ class StoreObserver: NSObject {
         }
  
 
-        // Finishes the restored transaction.
-        SKPaymentQueue.default().finishTransaction(transaction)
     }
     
-    fileprivate func verifyTransaction(_ transaction: SKPaymentTransaction) -> Bool {
+    #if DEBUG
+    let certificate = "StoreKitTestCertificate"
+    #else
+    let certificate = "AppleIncRootCertificate"
+    #endif
     
-        return true;
+    fileprivate func verifyTransaction(_ transaction: SKPaymentTransaction) -> Bool {
+        print( "using certificate: \(certificate)" )
+        // Get the receipt if it's available
+        if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+            FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
+
+            do {
+                let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+                print(receiptData)
+
+                let receiptString = receiptData.base64EncodedString(options: [])
+                // print( receiptString )
+                // Read receiptData
+            }
+            catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
+        }
+
+        // If you can’t find the receipt, you should request it. This requires you to have an internet connection and be logged in to the App Store.
+        let request = SKReceiptRefreshRequest()
+        request.delegate = self
+        request.start()
+
+ 
+        return false;
     }
 }
 

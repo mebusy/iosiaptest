@@ -47,6 +47,7 @@
 		EB5E7AB620E1B6B4005FE1AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F3EEA974262802D400E78C8F /* IAPConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = IAPConfiguration.storekit; sourceTree = "<group>"; };
 		F3EEA97D2628382900E78C8F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F3EEA982262843C500E78C8F /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				F3EEA974262802D400E78C8F /* IAPConfiguration.storekit */,
+				F3EEA982262843C500E78C8F /* StoreKitTestCertificate.cer */,
 				EB1A216A20DAE91600E70EE7 /* iOS */,
 				EB1A217C20DAEC2E00E70EE7 /* Common */,
 				EB1A216920DAE91600E70EE7 /* Products */,
