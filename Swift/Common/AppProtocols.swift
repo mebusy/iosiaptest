@@ -37,7 +37,9 @@ protocol StoreManagerDelegate: AnyObject {
 
 protocol StoreObserverDelegate: AnyObject {
     /// Tells the delegate that the restore operation was successful.
-    func storeObserverRestoreDidSucceed()
+    func storeObserverRestoreDidSucceed(_ productID: String)
+    /// Tells the delegate that the restore operation was successful.
+    func storeObserverPurchaseSucceed(_ productID: String)
     
     /// Provides the delegate with messages.
     func storeObserverDidReceiveMessage(_ message: String)

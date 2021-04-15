@@ -53,8 +53,7 @@ struct Messages {
     
     static let purchaseOf = "Purchase of"
 
-    static let restorable = "All restorable transactions have been processed by the payment queue."
-    static let restoreContent = "Restore content for"
+
     static let status = "Status"
     static let unableToInstantiateAvailableProducts = "Unable to instantiate an AvailableProducts."
     static let unableToInstantiateInvalidProductIds = "Unable to instantiate an InvalidProductIdentifiers."
@@ -81,6 +80,8 @@ struct Messages {
     static let productRequestStatus = "Product Request Status"
     // alert title when pay/restore got some mesage
     static let purchaseStatus = "Purchase Status"
+    // alert when transition verification failed
+    static let verifyFailed = "Verification Failed"
 }
 
 

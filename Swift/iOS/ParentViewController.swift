@@ -186,7 +186,11 @@ extension ParentViewController: StoreObserverDelegate {
         alert(with: Messages.purchaseStatus, message: message)
     }
     
-    func storeObserverRestoreDidSucceed() {
+    func storeObserverRestoreDidSucceed(_ productID: String) {
+        print( "restore \(productID) successfully")
         handleRestoredSucceededTransaction()
+    }
+    func storeObserverPurchaseSucceed(_ productID: String) {
+        print( "purchase \(productID) successfully")
     }
 }

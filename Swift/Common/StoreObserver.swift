@@ -82,13 +82,21 @@ class StoreObserver: NSObject {
     fileprivate func handlePurchased(_ transaction: SKPaymentTransaction) {
         purchased.append(transaction)
         
-        // case purchased = 1
+        // state: ase purchased = 1, restored = 3
         print( "Transaction: pid:\(transaction.payment.productIdentifier) status:\(transaction.transactionState.rawValue)" )
         if transaction.transactionState.rawValue == 1 {
             print("\t to deliver content...")
         }
         
         
+        let bValid = verifyTransaction( transaction );
+        DispatchQueue.main.async {
+            if bValid {
+                self.delegate?.storeObserverPurchaseSucceed( transaction.payment.productIdentifier )
+            } else {
+                self.delegate?.storeObserverDidReceiveMessage( Messages.verifyFailed )
+            }
+        }
         
         // Finish the successful transaction.
         // if finishTransaction() failed to invoke.
@@ -121,13 +129,28 @@ class StoreObserver: NSObject {
     fileprivate func handleRestored(_ transaction: SKPaymentTransaction) {
         hasRestorablePurchases = true
         restored.append(transaction)
-        print("\(Messages.restoreContent) \(transaction.payment.productIdentifier).")
         
+        // state: ase purchased = 1, restored = 3
+        print( "Transaction: pid:\(transaction.payment.productIdentifier) status:\(transaction.transactionState.rawValue)" )
+        print("\t to restore content for \(transaction.payment.productIdentifier).")
+        
+        let bValid = verifyTransaction( transaction );
         DispatchQueue.main.async {
-            self.delegate?.storeObserverRestoreDidSucceed()
+            if bValid {
+                self.delegate?.storeObserverRestoreDidSucceed( transaction.payment.productIdentifier )
+            } else {
+                self.delegate?.storeObserverDidReceiveMessage( Messages.verifyFailed )
+            }
         }
+ 
+
         // Finishes the restored transaction.
         SKPaymentQueue.default().finishTransaction(transaction)
+    }
+    
+    fileprivate func verifyTransaction(_ transaction: SKPaymentTransaction) -> Bool {
+    
+        return true;
     }
 }
 
@@ -177,13 +200,13 @@ extension StoreObserver: SKPaymentTransactionObserver {
     
     /// Called when all restorable transactions have been processed by the payment queue.
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        print(Messages.restorable)
-        
         if !hasRestorablePurchases {
             DispatchQueue.main.async {
                 // mainly for dev debug purpose
                 self.delegate?.storeObserverDidReceiveMessage( "There are no restorable purchases." )
             }
+        } else {
+            print("[queue] all restorable transactions have been processed by the payment queue.")
         }
     }
 }

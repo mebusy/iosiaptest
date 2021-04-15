@@ -15,6 +15,7 @@ How to use:
  SKProductsResponse via SKProductsRequestDelegate
 
 2. purchase
+ StoreObserver.shared.buy(product)
  
 3. restore
  StoreObserver.shared.restore()
