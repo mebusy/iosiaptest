@@ -22,7 +22,7 @@ How to use:
 import StoreKit
 import Foundation
 
-class StoreObserver: NSObject, SKRequestDelegate {
+class StoreObserver: NSObject {
     // MARK: - Types
     
     static let shared = StoreObserver()
@@ -173,10 +173,6 @@ class StoreObserver: NSObject, SKRequestDelegate {
             catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
         }
 
-        // If you can’t find the receipt, you should request it. This requires you to have an internet connection and be logged in to the App Store.
-        let request = SKReceiptRefreshRequest()
-        request.delegate = self
-        request.start()
 
  
         return false;
@@ -240,6 +236,16 @@ extension StoreObserver: SKPaymentTransactionObserver {
     }
     
     // MARK: - SKReceiptRefreshRequest
+    
+    /*
+    , SKRequestDelegate
+ 
+    // If you can’t find the receipt, you should request it. This requires you to have an internet connection and be logged in to the App Store.
+    let request = SKReceiptRefreshRequest()
+    request.delegate = self
+    request.start()
+
+    
     func requestDidFinish(_ request: SKRequest) {
         print("requestDidFinish")
     }
@@ -249,4 +255,5 @@ extension StoreObserver: SKPaymentTransactionObserver {
         print("requst(_:didFailWithError:)")
         print( error )
     }
+    */
 }
