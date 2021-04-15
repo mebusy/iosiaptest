@@ -13,6 +13,11 @@ How to use:
  }
  
  SKProductsResponse via SKProductsRequestDelegate
+
+2. purchase
+ 
+3. restore
+ StoreObserver.shared.restore()
 */
 
 import StoreKit

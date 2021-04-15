@@ -20,8 +20,9 @@
 		EB1A218A20DAEF5F00E70EE7 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A218920DAEF5F00E70EE7 /* AppExtensions.swift */; };
 		EB1A218C20DAEFB600E70EE7 /* PaymentTransactionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A218B20DAEFB600E70EE7 /* PaymentTransactionDetails.swift */; };
 		EB1A218E20DAF09300E70EE7 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A218D20DAF09300E70EE7 /* StoreObserver.swift */; };
-		EB1A219020DAF1D100E70EE7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A218F20DAF1D100E70EE7 /* Utilities.swift */; };
+		EB1A219020DAF1D100E70EE7 /* UI_Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A218F20DAF1D100E70EE7 /* UI_Utilities.swift */; };
 		EB1A219220DAF2B400E70EE7 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1A219120DAF2B400E70EE7 /* ParentViewController.swift */; };
+		F3EEA97E2628382900E78C8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA97D2628382900E78C8F /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +42,11 @@
 		EB1A218920DAEF5F00E70EE7 /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 		EB1A218B20DAEFB600E70EE7 /* PaymentTransactionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTransactionDetails.swift; sourceTree = "<group>"; };
 		EB1A218D20DAF09300E70EE7 /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
-		EB1A218F20DAF1D100E70EE7 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		EB1A218F20DAF1D100E70EE7 /* UI_Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Utilities.swift; sourceTree = "<group>"; };
 		EB1A219120DAF2B400E70EE7 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		EB5E7AB620E1B6B4005FE1AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		F3EEA974262802D400E78C8F /* IAPConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = IAPConfiguration.storekit; sourceTree = "<group>"; };
+		F3EEA97D2628382900E78C8F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		EB1A217C20DAEC2E00E70EE7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EB1A218F20DAF1D100E70EE7 /* UI_Utilities.swift */,
 				EB1A218520DAEF2000E70EE7 /* Products.swift */,
 				EB1A218B20DAEFB600E70EE7 /* PaymentTransactionDetails.swift */,
 				EB1A218320DAEEEB00E70EE7 /* BaseViewController.swift */,
@@ -118,7 +121,7 @@
 				EB1A217F20DAED2C00E70EE7 /* StoreManager.swift */,
 				EB1A218D20DAF09300E70EE7 /* StoreObserver.swift */,
 				EB1A218120DAED9900E70EE7 /* AppProtocols.swift */,
-				EB1A218F20DAF1D100E70EE7 /* Utilities.swift */,
+				F3EEA97D2628382900E78C8F /* Utils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -200,13 +203,14 @@
 				EB1A219220DAF2B400E70EE7 /* ParentViewController.swift in Sources */,
 				EB1A217E20DAED0B00E70EE7 /* AppDataTypes.swift in Sources */,
 				EB1A218220DAED9900E70EE7 /* AppProtocols.swift in Sources */,
+				F3EEA97E2628382900E78C8F /* Utils.swift in Sources */,
 				EB1A218E20DAF09300E70EE7 /* StoreObserver.swift in Sources */,
 				EB1A218C20DAEFB600E70EE7 /* PaymentTransactionDetails.swift in Sources */,
 				EB1A218020DAED2C00E70EE7 /* StoreManager.swift in Sources */,
 				EB1A218620DAEF2000E70EE7 /* Products.swift in Sources */,
 				EB1A216C20DAE91600E70EE7 /* AppDelegate.swift in Sources */,
 				EB1A218420DAEEEB00E70EE7 /* BaseViewController.swift in Sources */,
-				EB1A219020DAF1D100E70EE7 /* Utilities.swift in Sources */,
+				EB1A219020DAF1D100E70EE7 /* UI_Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

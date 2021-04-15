@@ -12,7 +12,7 @@ import Cocoa
 import UIKit
 #endif
 
-class Utilities {
+class UI_Utilities {
     
     // MARK: - Properties
     
@@ -48,16 +48,5 @@ class Utilities {
         restoreWasCalled = false
     }
     
-    // MARK: - Create Alert
-    
-    #if os (iOS) || os (tvOS)
-    /// - returns: An alert with a given title and message.
-    func alert(_ title: String, message: String) -> UIAlertController {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: NSLocalizedString(Messages.okButton, comment: Messages.emptyString),
-                                   style: .default, handler: nil)
-        alertController.addAction(action)
-        return alertController
-    }
-    #endif
+
 }

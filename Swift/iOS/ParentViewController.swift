@@ -22,7 +22,7 @@ class ParentViewController: UIViewController {
     @IBOutlet weak fileprivate var segmentedControl: UISegmentedControl!
     @IBOutlet weak fileprivate var restoreButton: UIBarButtonItem!
     
-    fileprivate var utility = Utilities()
+    fileprivate var utility = UI_Utilities()
     
     fileprivate lazy var products: Products = {
         let identifier = ViewControllerIdentifiers.products
@@ -117,7 +117,7 @@ class ParentViewController: UIViewController {
     
     /// Creates and displays an alert.
     fileprivate func alert(with title: String, message: String) {
-        let alertController = utility.alert(title, message: message)
+        let alertController = Utils.alert(title, message: message)
         self.navigationController?.present(alertController, animated: true, completion: nil)
     }
     
