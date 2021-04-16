@@ -157,7 +157,8 @@ class StoreObserver: NSObject {
     #endif
     
     fileprivate func verifyTransaction(_ transaction: SKPaymentTransaction) -> Bool {
-        print( "using certificate: \(certificate)" )
+        
+        print( "using certificate: \(String(describing: transaction.payment.requestData))" )
         // Get the receipt if it's available
         if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
             FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
@@ -167,7 +168,7 @@ class StoreObserver: NSObject {
                 print(receiptData)
 
                 let receiptString = receiptData.base64EncodedString(options: [])
-                // print( receiptString )
+                print( receiptString )
                 // Read receiptData
             }
             catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
