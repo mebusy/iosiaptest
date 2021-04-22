@@ -97,7 +97,7 @@ class ParentViewController: UIViewController {
             restoreButton.enable()
             
             // hard code IPA identifiers
-            let identifiers = ["com.temporary.renew" , "not_exist_iap_id" , "com.temporary.c" , "com.temporary.nc"]
+            let identifiers = ["com.temporary.renew", "com.temporary.renew3" , "not_exist_iap_id" , "com.temporary.c" , "com.temporary.nc"]
             
                     // UI switch
                     switchToViewController(segment: .products)

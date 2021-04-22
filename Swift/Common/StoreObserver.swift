@@ -150,13 +150,20 @@ class StoreObserver: NSObject {
 
     }
     
-    #if DEBUG
-    let certificate = "StoreKitTestCertificate"
-    #else
-    let certificate = "AppleIncRootCertificate"
-    #endif
+    func getDeviceIdentifier() -> Data {
+          let device = UIDevice.current
+          var uuid = device.identifierForVendor!.uuid
+          let addr = withUnsafePointer(to: &uuid) { (p) -> UnsafeRawPointer in
+            UnsafeRawPointer(p)
+          }
+          let data = Data(bytes: addr, count: 16)
+          return data
+    }
     
     fileprivate func verifyTransaction(_ transaction: SKPaymentTransaction) -> Bool {
+        
+        let identifierData = getDeviceIdentifier()
+        print( "device id:", identifierData.hexDescription )
         
         print( "using certificate: \(String(describing: transaction.payment.requestData))" )
         // Get the receipt if it's available
@@ -175,8 +182,8 @@ class StoreObserver: NSObject {
         }
 
 
- 
-        return false;
+        // TODO
+        return true;
     }
 }
 
@@ -229,11 +236,24 @@ extension StoreObserver: SKPaymentTransactionObserver {
         if !hasRestorablePurchases {
             DispatchQueue.main.async {
                 // mainly for dev debug purpose
-                self.delegate?.storeObserverDidReceiveMessage( "There are no restorable purchases." )
+                self.delegate?.storeObserverDidReceiveMessage( Messages.noRestorablePurchases )
             }
         } else {
             print("[queue] all restorable transactions have been processed by the payment queue.")
         }
+    }
+    
+    public func paymentQueue(
+      _ queue: SKPaymentQueue,
+      didRevokeEntitlementsForProductIdentifiers productIdentifiers: [String]
+    ) {
+      for identifier in productIdentifiers {
+        //purchasedProductIdentifiers.remove(identifier)
+        //UserDefaults.standard.removeObject(forKey: identifier)
+        //deliverPurchaseNotificationFor(identifier: identifier)
+        // TODO
+        print( "product \(identifier) revoked!!!" )
+      }
     }
     
     // MARK: - SKReceiptRefreshRequest

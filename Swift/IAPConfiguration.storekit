@@ -32,7 +32,9 @@
     }
   ],
   "settings" : {
-
+    "_billingIssuesEnabled" : false,
+    "_failTransactionsEnabled" : false,
+    "_storeKitError" : 0
   },
   "subscriptionGroups" : [
     {
@@ -62,6 +64,37 @@
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "com.temporary.renew",
           "subscriptionGroupID" : "08AB5AB9",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    },
+    {
+      "id" : "F15EB87B",
+      "localizations" : [
+
+      ],
+      "name" : "g1",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "7.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "BBA9B755",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.temporary.renew3",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "com.temporary.renew3",
+          "subscriptionGroupID" : "F15EB87B",
           "type" : "RecurringSubscription"
         }
       ]

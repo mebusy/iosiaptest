@@ -45,7 +45,7 @@ struct Messages {
     static let failed = "failed."
     static let installing = "In-App Purchases may be restricted on your device."
     static let invalidIndexPath = "Invalid selected index path"
-    // static let noRestorablePurchases = "There are no restorable purchases.\n\(previouslyBought)"
+    //
     static let noPurchasesAvailable = "No purchases available."
     static let notAuthorized = "You are not authorized to make payments."
     static let okButton = "OK"
@@ -82,6 +82,7 @@ struct Messages {
     static let purchaseStatus = "Purchase Status"
     // alert when transition verification failed
     static let verifyFailed = "Verification Failed"
+    static let noRestorablePurchases = "There are no restorable purchases."
 }
 
 

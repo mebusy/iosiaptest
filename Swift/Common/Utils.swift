@@ -28,3 +28,14 @@ class Utils {
     }
     #endif
 }
+
+
+extension Data {
+    // Data, byte array to hex string
+    var hexDescription: String {
+        return reduce("") {$0 + String(format: "%02x", $1)}
+    }
+}
+
+
+
